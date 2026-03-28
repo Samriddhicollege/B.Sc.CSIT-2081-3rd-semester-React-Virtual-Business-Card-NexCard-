@@ -1,4 +1,3 @@
-'use client';
 import { Globe, ExternalLink } from 'lucide-react';
 
 /* Simple inline SVG brand icons since lucide-react doesn't include brand logos */

@@ -1,4 +1,3 @@
-'use client';
 import { motion } from 'framer-motion';
 import { Search, Palette, Download } from 'lucide-react';
 

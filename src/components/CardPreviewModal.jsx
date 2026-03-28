@@ -1,4 +1,3 @@
-'use client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Download, Palette, ArrowLeft, ArrowRight, Heart } from 'lucide-react';
 import { useState, useEffect, useRef, useCallback } from 'react';
@@ -27,6 +26,7 @@ function BigCardPreview({ template, businessName }) {
     }}>
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: `linear-gradient(90deg, ${accent}, ${accent}66)` }} />
       <div>
+        <div style={{ fontSize: '14px', fontWeight: 800, color: accent, letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '8px' }}>{company}</div>
         <div style={{ fontSize: '22px', fontWeight: 800, color: textColor, letterSpacing: '2px', textTransform: 'uppercase' }}>{person.name}</div>
         <div style={{ fontSize: '12px', color: textColor, opacity: 0.6, fontWeight: 500, marginTop: '4px', textTransform: 'uppercase', letterSpacing: '1px' }}>{person.title}</div>
       </div>
@@ -36,10 +36,7 @@ function BigCardPreview({ template, businessName }) {
           <div>✉ {person.email}</div>
           <div>🌐 {person.web}</div>
         </div>
-        <div>
-          <div style={{ width: '48px', height: '48px', borderRadius: '10px', border: `2px solid ${accent}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', fontWeight: 800, color: accent }}>{person.initials}</div>
-          <div style={{ fontSize: '8px', color: accent, opacity: 0.6, textTransform: 'uppercase', letterSpacing: '1px', marginTop: '4px', textAlign: 'center' }}>{company}</div>
-        </div>
+        <div style={{ width: '48px', height: '48px', borderRadius: '10px', border: `2px solid ${accent}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', fontWeight: 800, color: accent }}>{person.initials}</div>
       </div>
     </div>
   );

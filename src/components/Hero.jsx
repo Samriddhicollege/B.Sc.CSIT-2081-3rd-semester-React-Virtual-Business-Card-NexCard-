@@ -1,4 +1,3 @@
-'use client';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -120,7 +119,7 @@ export default function Hero() {
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
               className="mt-8 flex items-center gap-5 flex-wrap"
             >
-              {['1000+ Templates', '100+ Users', 'Premium Quality', 'Unlimited Customization', 'Premium Designs', 'High-res Files'].map((s) => (
+              {['30+ Templates', 'Growing Community', 'Premium Quality', 'Unlimited Customization', 'Premium Designs', 'High-res Files'].map((s) => (
                 <div key={s} className="flex items-center gap-1.5">
                   <Check className="w-3 h-3 text-[#00D4AA]" />
                   <span className="text-[#a0a8b8] text-[11px] font-medium">{s}</span>

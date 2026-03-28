@@ -1,15 +1,10 @@
-import { getSupabaseBrowserClient } from '@/lib/supabase/client';
+import { getSupabaseBrowserClient, isSupabaseReady } from '@/lib/supabase/client';
 
 const STORAGE_KEY = 'nexcard-published-cards';
 
 /* ─── Helpers: check if Supabase is configured ─── */
 function isSupabaseConfigured() {
-  return (
-    process.env.NEXT_PUBLIC_SUPABASE_URL &&
-    process.env.NEXT_PUBLIC_SUPABASE_URL !== 'your-project-url-here' &&
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY &&
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY !== 'your-anon-key-here'
-  );
+  return isSupabaseReady();
 }
 
 /* ─── localStorage fallback (for offline / no-Supabase mode) ─── */
@@ -213,7 +208,7 @@ export async function deleteCard(slug) {
 }
 
 /**
- * Increment view count for a card
+ * Increment view count for a card (atomic via RPC or fallback)
  */
 export async function incrementViews(slug) {
   if (!isSupabaseConfigured()) {
@@ -222,16 +217,15 @@ export async function incrementViews(slug) {
   }
 
   const supabase = getSupabaseBrowserClient();
-  const { data: card } = await supabase
-    .from('cards')
-    .select('views')
-    .eq('slug', slug)
-    .single();
 
-  if (card) {
+  // Use atomic SQL increment to avoid race conditions
+  const { error } = await supabase.rpc('increment_card_views', { card_slug: slug });
+
+  // Fallback to manual update if RPC doesn't exist yet
+  if (error) {
     await supabase
       .from('cards')
-      .update({ views: (card.views || 0) + 1 })
+      .update({ views: supabase.sql`views + 1` })
       .eq('slug', slug);
   }
 }

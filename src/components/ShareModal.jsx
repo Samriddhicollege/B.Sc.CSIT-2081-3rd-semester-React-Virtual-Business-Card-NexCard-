@@ -1,4 +1,3 @@
-'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Copy, Check, Share2, MessageCircle, Mail, Link2 } from 'lucide-react';

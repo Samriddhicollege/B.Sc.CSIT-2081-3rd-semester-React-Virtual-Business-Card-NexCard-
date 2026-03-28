@@ -1,4 +1,3 @@
-'use client';
 import { getPersonForTemplate, getCompanyForTemplate, TEMPLATES } from '@/data/templates';
 
 // Phone mockup card — simulating a digital vCard in a phone frame

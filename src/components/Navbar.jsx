@@ -1,4 +1,3 @@
-'use client';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -10,8 +9,8 @@ import { useAuth } from './AuthProvider';
 import { signOut } from '@/lib/auth';
 
 const NAV_LINKS = [
-  { label: 'AI Logo Maker', href: '#', icon: Sparkles, locked: true },
-  { label: 'AI Designs', href: '#', icon: Wand2, locked: true },
+  { label: 'AI Logo Maker', href: '#', icon: Sparkles, locked: true, comingSoon: true },
+  { label: 'AI Designs', href: '#', icon: Wand2, locked: true, comingSoon: true },
   { label: 'Pricing', href: '/pricing', icon: Star },
   { label: 'My Cards', href: '/my-cards', icon: Layers },
 ];
@@ -77,6 +76,9 @@ export default function Navbar() {
                 >
                   <Icon className="w-3.5 h-3.5 text-[#5c6370] group-hover/link:text-white transition-colors" />
                   {link.label}
+                  {link.comingSoon && (
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-[#00D4AA] bg-[#00D4AA]/10 px-1.5 py-0.5 rounded-full">Soon</span>
+                  )}
                 </button>
               );
             }

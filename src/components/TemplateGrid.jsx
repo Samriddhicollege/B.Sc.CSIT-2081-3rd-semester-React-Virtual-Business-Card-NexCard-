@@ -1,4 +1,3 @@
-'use client';
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { TEMPLATES, CATEGORIES } from '@/data/templates';

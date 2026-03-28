@@ -1,4 +1,3 @@
-'use client';
 import { useState } from 'react';
 import { ChevronDown, Search, SlidersHorizontal, X, Type, Tag } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';

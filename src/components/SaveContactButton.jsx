@@ -1,4 +1,3 @@
-'use client';
 import { Download, UserPlus } from 'lucide-react';
 import { downloadVCard } from '@/utils/vcard';
 

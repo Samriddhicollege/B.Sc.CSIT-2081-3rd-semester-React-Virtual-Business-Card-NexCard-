@@ -1,5 +1,5 @@
 -- ============================================
--- BrandCrowd Supabase Schema
+-- NexCard Supabase Schema
 -- Run this in your Supabase SQL Editor
 -- ============================================
 
@@ -82,3 +82,34 @@ CREATE POLICY "Users can update own cards"
 -- Users can delete their own cards
 CREATE POLICY "Users can delete own cards"
   ON cards FOR DELETE USING (auth.uid() = user_id);
+
+-- Users can also view their own unpublished cards
+CREATE POLICY "Users can view own cards"
+  ON cards FOR SELECT USING (auth.uid() = user_id);
+
+-- ============================================
+-- Indexes for performance
+-- ============================================
+CREATE INDEX IF NOT EXISTS idx_cards_user_id ON cards(user_id);
+CREATE INDEX IF NOT EXISTS idx_cards_slug ON cards(slug);
+CREATE INDEX IF NOT EXISTS idx_cards_is_published ON cards(is_published);
+
+-- ============================================
+-- Auto-update updated_at on cards
+-- ============================================
+CREATE OR REPLACE FUNCTION update_updated_at()
+RETURNS TRIGGER AS $$
+BEGIN NEW.updated_at = now(); RETURN NEW; END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE TRIGGER cards_updated_at
+  BEFORE UPDATE ON cards
+  FOR EACH ROW EXECUTE FUNCTION update_updated_at();
+
+-- ============================================
+-- Atomic view increment (avoids race conditions)
+-- ============================================
+CREATE OR REPLACE FUNCTION increment_card_views(card_slug TEXT)
+RETURNS void AS $$
+  UPDATE cards SET views = views + 1 WHERE slug = card_slug AND is_published = true;
+$$ LANGUAGE SQL SECURITY DEFINER;

@@ -1,12 +1,20 @@
-'use client';
 import { Link } from 'react-router-dom';
 import { Flame, ArrowRight } from 'lucide-react';
 
 const LINKS = {
-  NexCard: ['About Us', 'Careers', 'Blog', 'Press'],
-  Company: ['Pricing', 'Terms', 'Privacy', 'Contact'],
-  Templates: ['Business Cards', 'Logos', 'Social Media', 'Flyers'],
-  'Find a Logo': ['Restaurant', 'Beauty', 'Tech', 'Real Estate'],
+  Product: [
+    { label: 'Templates', href: '/' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'My Cards', href: '/my-cards' },
+  ],
+  Company: [
+    { label: 'About', href: '#' },
+    { label: 'Contact', href: 'mailto:support@nexcard.com' },
+  ],
+  Legal: [
+    { label: 'Terms of Service', href: '#' },
+    { label: 'Privacy Policy', href: '#' },
+  ],
 };
 
 export default function Footer() {
@@ -32,13 +40,13 @@ export default function Footer() {
             </div>
             <span className="font-bold text-base text-white">Nex<span className="text-[#00D4AA]">Card</span></span>
           </Link>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {Object.entries(LINKS).map(([cat, links]) => (
               <div key={cat}>
                 <h4 className="text-[#a0a8b8] font-bold text-[10px] mb-3 uppercase tracking-widest">{cat}</h4>
                 <ul className="space-y-2">
                   {links.map((l) => (
-                    <li key={l}><Link to="#" className="text-[#5c6370] text-xs hover:text-[#00D4AA] transition-colors">{l}</Link></li>
+                    <li key={l.label}><Link to={l.href} className="text-[#5c6370] text-xs hover:text-[#00D4AA] transition-colors">{l.label}</Link></li>
                   ))}
                 </ul>
               </div>

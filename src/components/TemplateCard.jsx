@@ -1,4 +1,3 @@
-'use client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart } from 'lucide-react';
 import { memo, useMemo } from 'react';
@@ -14,6 +13,7 @@ function LayoutStandard({ person, company, bg, accent, textColor }) {
     <div style={{ ...layoutStyles.container, backgroundColor: bg, position: 'relative', padding: '14px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2.5px', background: accent }} />
       <div>
+        <div style={{ fontSize: '9px', fontWeight: 800, color: accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '4px' }}>{company}</div>
         <div style={{ fontSize: '11px', fontWeight: 800, color: textColor, letterSpacing: '1.5px', textTransform: 'uppercase' }}>{person.name}</div>
         <div style={{ fontSize: '7px', color: textColor, opacity: 0.55, fontWeight: 500, marginTop: '1px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{person.title}</div>
       </div>
@@ -23,7 +23,6 @@ function LayoutStandard({ person, company, bg, accent, textColor }) {
         </div>
         <div style={{ width: '26px', height: '26px', borderRadius: '5px', border: `1.5px solid ${accent}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '9px', fontWeight: 800, color: accent }}>{person.initials}</div>
       </div>
-      <div style={{ position: 'absolute', top: '10px', right: '10px', fontSize: '5px', color: accent, opacity: 0.45, textTransform: 'uppercase', letterSpacing: '1px', lineHeight: 1.5, textAlign: 'right' }}>{company}</div>
     </div>
   );
 }
@@ -32,7 +31,7 @@ function LayoutSplit({ person, company, bg, accent, textColor }) {
   return (
     <div style={{ ...layoutStyles.container, display: 'flex' }}>
       <div style={{ width: '32%', backgroundColor: accent, padding: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-        <div style={{ fontSize: '5px', color: bg, opacity: 0.7, textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 700 }}>{company}</div>
+        <div style={{ fontSize: '9px', color: bg, textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 800, lineHeight: 1.3 }}>{company}</div>
         <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: bg, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '8px', fontWeight: 800, color: accent }}>{person.initials}</div>
       </div>
       <div style={{ flex: 1, backgroundColor: bg, padding: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -53,12 +52,12 @@ function LayoutCentered({ person, company, bg, accent, textColor }) {
     <div style={{ ...layoutStyles.container, backgroundColor: bg, padding: '12px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', position: 'relative' }}>
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', backgroundColor: accent }} />
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '2px', backgroundColor: accent }} />
+      <div style={{ fontSize: '9px', color: accent, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2.5px', marginBottom: '5px' }}>{company}</div>
       <div style={{ width: '26px', height: '26px', borderRadius: '50%', border: `1.5px solid ${accent}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '9px', fontWeight: 800, color: accent, marginBottom: '4px' }}>{person.initials}</div>
       <div style={{ fontSize: '10px', fontWeight: 800, color: textColor, letterSpacing: '1.5px', textTransform: 'uppercase' }}>{person.name}</div>
       <div style={{ fontSize: '6px', color: textColor, opacity: 0.5, marginTop: '1px', textTransform: 'uppercase', letterSpacing: '1px' }}>{person.title}</div>
       <div style={{ width: '20px', height: '1px', backgroundColor: accent, margin: '5px 0', opacity: 0.3 }} />
       <div style={{ fontSize: '5.5px', color: textColor, opacity: 0.4 }}>{person.email}</div>
-      <div style={{ position: 'absolute', bottom: '6px', fontSize: '4.5px', color: accent, opacity: 0.4, textTransform: 'uppercase', letterSpacing: '1.5px', fontWeight: 700 }}>{company}</div>
     </div>
   );
 }
@@ -68,6 +67,7 @@ function LayoutSidebar({ person, company, bg, accent, textColor }) {
     <div style={{ ...layoutStyles.container, display: 'flex' }}>
       <div style={{ flex: 1, backgroundColor: bg, padding: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <div>
+          <div style={{ fontSize: '9px', fontWeight: 800, color: accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '3px' }}>{company}</div>
           <div style={{ fontSize: '10px', fontWeight: 800, color: textColor, letterSpacing: '1px', textTransform: 'uppercase' }}>{person.name}</div>
           <div style={{ fontSize: '7px', color: textColor, opacity: 0.5, marginTop: '1px', textTransform: 'uppercase' }}>{person.title}</div>
         </div>
@@ -75,8 +75,7 @@ function LayoutSidebar({ person, company, bg, accent, textColor }) {
           <div>{person.phone}</div><div>{person.email}</div>
         </div>
       </div>
-      <div style={{ width: '28%', backgroundColor: accent, padding: '10px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div style={{ fontSize: '4.5px', color: bg, opacity: 0.7, textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 700, textAlign: 'center' }}>{company}</div>
+      <div style={{ width: '28%', backgroundColor: accent, padding: '10px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ width: '24px', height: '24px', borderRadius: '5px', backgroundColor: bg, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '8px', fontWeight: 800, color: accent }}>{person.initials}</div>
       </div>
     </div>

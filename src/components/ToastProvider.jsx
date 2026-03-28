@@ -1,4 +1,3 @@
-'use client';
 import { createContext, useContext, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, X, AlertTriangle, Info } from 'lucide-react';

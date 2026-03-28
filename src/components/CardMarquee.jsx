@@ -1,4 +1,3 @@
-'use client';
 import { getPersonForTemplate, getCompanyForTemplate, TEMPLATES } from '@/data/templates';
 
 // Miniature card renderers for the marquee

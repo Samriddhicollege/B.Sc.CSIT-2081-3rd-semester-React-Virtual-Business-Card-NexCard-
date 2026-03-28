@@ -61,6 +61,7 @@ export async function signOut() {
  */
 export async function getSession() {
   const supabase = getSupabaseBrowserClient();
+  if (!supabase) return { session: null, error: NOT_CONFIGURED_ERROR };
   const { data: { session }, error } = await supabase.auth.getSession();
   return { session, error };
 }
@@ -70,6 +71,7 @@ export async function getSession() {
  */
 export async function getUser() {
   const supabase = getSupabaseBrowserClient();
+  if (!supabase) return { user: null, error: NOT_CONFIGURED_ERROR };
   const { data: { user }, error } = await supabase.auth.getUser();
   return { user, error };
 }

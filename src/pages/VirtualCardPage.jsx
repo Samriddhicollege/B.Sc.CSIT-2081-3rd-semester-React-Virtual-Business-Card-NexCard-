@@ -81,6 +81,20 @@ export default function VirtualCardPage() {
           >
             {/* Avatar & Identity */}
             <div className="text-center">
+              {card.company && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15 }}
+                  className="flex items-center justify-center gap-2 mb-5"
+                >
+                  <Building2 className="w-5 h-5" style={{ color: accent }} />
+                  <span className="text-lg font-extrabold tracking-widest uppercase" style={{ color: accent }}>
+                    {card.company}
+                  </span>
+                </motion.div>
+              )}
+
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -115,20 +129,6 @@ export default function VirtualCardPage() {
                 >
                   {card.title}
                 </motion.p>
-              )}
-
-              {card.company && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                  className="flex items-center justify-center gap-1.5 mt-2"
-                >
-                  <Building2 className="w-3.5 h-3.5" style={{ color: accent }} />
-                  <span className="text-sm font-medium" style={{ color: textColor, opacity: 0.5 }}>
-                    {card.company}
-                  </span>
-                </motion.div>
               )}
             </div>
 

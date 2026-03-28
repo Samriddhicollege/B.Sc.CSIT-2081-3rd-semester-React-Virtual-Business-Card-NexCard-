@@ -1,4 +1,3 @@
-'use client';
 import { motion } from 'framer-motion';
 import { Layers, Star, Zap, Shield, Globe, Printer } from 'lucide-react';
 

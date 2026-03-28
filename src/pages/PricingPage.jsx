@@ -79,10 +79,10 @@ const PLANS = [
 ];
 
 const TRUST_STATS = [
-  { icon: Users, value: '10,000+', label: 'Active users' },
-  { icon: Layers, value: '1M+', label: 'Cards created' },
-  { icon: Star, value: '4.9/5', label: 'User rating' },
-  { icon: Globe, value: '50+', label: 'Countries' },
+  { icon: Users, value: '500+', label: 'Active users' },
+  { icon: Layers, value: '1,000+', label: 'Cards created' },
+  { icon: Star, value: '30+', label: 'Templates' },
+  { icon: Globe, value: '10+', label: 'Countries' },
 ];
 
 const FAQS = [

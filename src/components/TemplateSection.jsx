@@ -1,4 +1,3 @@
-'use client';
 import { useState } from 'react';
 import FilterBar from './FilterBar';
 import TemplateGrid from './TemplateGrid';

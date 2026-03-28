@@ -29,6 +29,7 @@ function LayoutStandard({ person, company, bg, accent, textColor, logoUrl }) {
     <div style={{ backgroundColor: bg, width: '100%', height: '100%', position: 'relative', padding: '32px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontFamily: "'Inter', sans-serif" }}>
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: accent }} />
       <div>
+        <div style={{ fontSize: '18px', fontWeight: 800, color: accent, letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '8px', borderBottom: `2px solid ${accent}`, paddingBottom: '4px', display: 'inline-block' }}>{company}</div>
         <div style={{ fontSize: '24px', fontWeight: 800, color: textColor, letterSpacing: '2px', textTransform: 'uppercase' }}>{person.name}</div>
         <div style={{ fontSize: '13px', color: textColor, opacity: 0.55, fontWeight: 500, marginTop: '4px', textTransform: 'uppercase', letterSpacing: '1px' }}>{person.title}</div>
       </div>
@@ -38,10 +39,7 @@ function LayoutStandard({ person, company, bg, accent, textColor, logoUrl }) {
           <div>✉ {person.email}</div>
           {person.web && <div>🌐 {person.web}</div>}
         </div>
-        <div>
-          <LogoBadge logoUrl={logoUrl} fallback={person.initials} size={52} borderRadius="10px" border={`2px solid ${accent}`} textColor={accent} />
-          <div style={{ fontSize: '8px', color: accent, opacity: 0.5, textTransform: 'uppercase', letterSpacing: '1.5px', marginTop: '4px', textAlign: 'center' }}>{company}</div>
-        </div>
+        <LogoBadge logoUrl={logoUrl} fallback={person.initials} size={52} borderRadius="10px" border={`2px solid ${accent}`} textColor={accent} />
       </div>
     </div>
   );
@@ -51,7 +49,7 @@ function LayoutSplit({ person, company, bg, accent, textColor, logoUrl }) {
   return (
     <div style={{ width: '100%', height: '100%', display: 'flex', fontFamily: "'Inter', sans-serif" }}>
       <div style={{ width: '32%', backgroundColor: accent, padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-        <div style={{ fontSize: '9px', color: bg, opacity: 0.7, textTransform: 'uppercase', letterSpacing: '1.5px', fontWeight: 700 }}>{company}</div>
+        <div style={{ fontSize: '16px', color: bg, textTransform: 'uppercase', letterSpacing: '2.5px', fontWeight: 800, lineHeight: 1.2 }}>{company}</div>
         <LogoBadge logoUrl={logoUrl} fallback={person.initials} size={44} borderRadius="50%" bgColor={bg} textColor={accent} fontSize="16px" />
       </div>
       <div style={{ flex: 1, backgroundColor: bg, padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -72,6 +70,7 @@ function LayoutCentered({ person, company, bg, accent, textColor, logoUrl }) {
     <div style={{ backgroundColor: bg, width: '100%', height: '100%', padding: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', fontFamily: "'Inter', sans-serif", position: 'relative' }}>
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', backgroundColor: accent }} />
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '3px', backgroundColor: accent }} />
+      <div style={{ fontSize: '16px', color: accent, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '3px', marginBottom: '10px' }}>{company}</div>
       <div style={{ marginBottom: '8px' }}>
         <LogoBadge logoUrl={logoUrl} fallback={person.initials} size={48} borderRadius="50%" border={`2px solid ${accent}`} textColor={accent} fontSize="16px" />
       </div>
@@ -79,7 +78,6 @@ function LayoutCentered({ person, company, bg, accent, textColor, logoUrl }) {
       <div style={{ fontSize: '11px', color: textColor, opacity: 0.5, marginTop: '3px', textTransform: 'uppercase', letterSpacing: '1px' }}>{person.title}</div>
       <div style={{ width: '30px', height: '1px', backgroundColor: accent, margin: '10px 0', opacity: 0.3 }} />
       <div style={{ fontSize: '10px', color: textColor, opacity: 0.4 }}>{person.email}</div>
-      <div style={{ position: 'absolute', bottom: '10px', fontSize: '7px', color: accent, opacity: 0.4, textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700 }}>{company}</div>
     </div>
   );
 }
@@ -89,6 +87,7 @@ function LayoutSidebar({ person, company, bg, accent, textColor, logoUrl }) {
     <div style={{ width: '100%', height: '100%', display: 'flex', fontFamily: "'Inter', sans-serif" }}>
       <div style={{ flex: 1, backgroundColor: bg, padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <div>
+          <div style={{ fontSize: '18px', fontWeight: 800, color: accent, letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '8px', borderBottom: `2px solid ${accent}`, paddingBottom: '4px', display: 'inline-block' }}>{company}</div>
           <div style={{ fontSize: '20px', fontWeight: 800, color: textColor, letterSpacing: '1.5px', textTransform: 'uppercase' }}>{person.name}</div>
           <div style={{ fontSize: '12px', color: textColor, opacity: 0.5, marginTop: '3px', textTransform: 'uppercase' }}>{person.title}</div>
         </div>
@@ -96,8 +95,7 @@ function LayoutSidebar({ person, company, bg, accent, textColor, logoUrl }) {
           <div>{person.phone}</div><div>{person.email}</div>
         </div>
       </div>
-      <div style={{ width: '28%', backgroundColor: accent, padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div style={{ fontSize: '7px', color: bg, opacity: 0.7, textTransform: 'uppercase', letterSpacing: '1.5px', fontWeight: 700, textAlign: 'center' }}>{company}</div>
+      <div style={{ width: '28%', backgroundColor: accent, padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <LogoBadge logoUrl={logoUrl} fallback={person.initials} size={44} borderRadius="8px" bgColor={bg} textColor={accent} fontSize="16px" />
       </div>
     </div>
@@ -126,7 +124,7 @@ const LAYOUTS = [
 ];
 
 /* ─── Input Field Component ─── */
-function Field({ icon: Icon, label, value, onChange, placeholder }) {
+function Field({ icon: Icon, label, value, onChange, placeholder, maxLength = 100 }) {
   return (
     <div>
       <label className="text-[10px] font-bold text-[#8b929e] uppercase tracking-widest mb-1.5 flex items-center gap-1.5">
@@ -137,6 +135,7 @@ function Field({ icon: Icon, label, value, onChange, placeholder }) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
+        maxLength={maxLength}
         className="w-full bg-[#141720] border border-white/[0.08] text-sm text-white px-3 py-2.5 rounded-lg outline-none focus:border-[#00D4AA]/40 placeholder-[#8b929e]/50 transition-colors"
       />
     </div>
@@ -297,7 +296,7 @@ export default function CustomizePage() {
     <div className="min-h-screen bg-[#090b10]">
       <div className="max-w-[1200px] mx-auto px-5 py-8">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
           <div className="flex items-center gap-4">
             <button onClick={() => navigate(-1)} className="p-2 rounded-lg border border-white/[0.08] hover:bg-white/5 transition-colors" aria-label="Go back">
               <ArrowLeft className="w-4 h-4 text-[#8b929e]" />
@@ -307,7 +306,7 @@ export default function CustomizePage() {
               <p className="text-[#8b929e] text-xs mt-0.5">{template.title} • {template.category}</p>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <button onClick={resetToDefaults} className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-white/[0.08] text-[#8b929e] text-xs font-medium hover:bg-white/5 hover:text-white transition-all" aria-label="Reset to defaults">
               <RotateCcw className="w-3.5 h-3.5" /> Reset
             </button>

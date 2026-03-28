@@ -1,4 +1,3 @@
-'use client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sparkles, Wand2, Crown, ArrowRight, Check, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
