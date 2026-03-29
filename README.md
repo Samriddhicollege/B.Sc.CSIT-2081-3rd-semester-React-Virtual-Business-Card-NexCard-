@@ -1,7 +1,5 @@
 # NexCard — Virtual Business Card Maker
 
-**Live Site:** [https://mynexcard.vercel.app](https://mynexcard.vercel.app)
-
 A web app for creating, customizing, and sharing digital business cards. Built with **React 19 + Vite**, **Tailwind CSS v4**, **Framer Motion**, and **Supabase**.
 
 ---
