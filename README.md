@@ -1,132 +1,173 @@
-# NexCard — Virtual Business Card Maker
+## Project Title
 
-A web app for creating, customizing, and sharing digital business cards. Built with **React 19 + Vite**, **Tailwind CSS v4**, **Framer Motion**, and **Supabase**.
-
----
-
-## Features
-
-- Browse 30 pre-designed business card templates across 8 categories
-- Live card editor — customize colors, layout, fonts, logo, and contact info
-- Publish cards to a unique public URL (`/card/[slug]`)
-- Share via QR code, direct link, or social platforms
-- Save contacts as `.vcf` (vCard) files
-- Dashboard to manage all published cards
-- OAuth authentication (Google & GitHub) via Supabase
-- Graceful localStorage fallback when Supabase is not configured
+> *Smart Restaurant Management System (RMS) with React Frontend*
 
 ---
 
-## Tech Stack
+## Student Information
 
-| Layer | Technology |
-|---|---|
-| Frontend | React 19, React Router v7 |
-| Styling | Tailwind CSS v4, Framer Motion |
-| Backend / Auth | Supabase (PostgreSQL + Auth) |
-| Bundler | Vite 6 |
-| Deployment | Vercel |
+* **Name:** John Doe
+* **Roll Number:** 2023-CS-045
+* **Course / Program:** BSc Computer Science
+* **Semester / Year:** 3rd Semester / 2026
+
+---
+
+## Instructor Information
+
+* **Instructor Name:** Mr. Dipak Shrestha
+* **Course Title:** React Development / Full Stack Development
+* **College Name:** XYZ International College
+
+---
+
+## Project Overview
+
+> This project is a web-based Restaurant Management System developed using React for the frontend and Golang for the backend.
+> It allows restaurant staff to manage menus, process customer orders, and generate bills efficiently.
+> Customers can browse food items, add them to the cart, and place orders بسهولة.
+> The system also includes role-based access for admins and staff.
+> The main goal is to digitize restaurant operations and improve efficiency and user experience.
+
+---
+
+## Objectives
+
+* Build a responsive React application
+* Implement real-world features (menu, cart, orders, etc.)
+* Understand frontend-backend integration
+* Apply clean UI/UX design principles
+
+---
+
+## Technologies Used
+
+### Frontend
+
+* React.js
+* HTML, CSS, JavaScript
+* Tailwind CSS
+
+### Backend (if applicable)
+
+* Golang (Gin Framework)
+
+### Database
+
+* PostgreSQL
+
+### Other Tools
+
+* Git & GitHub
+* Docker
+* eSewa Integration (Planned)
+
+---
+
+## Key Features
+
+* Component-Based Architecture
+* State Management (useState/useEffect)
+* Responsive UI Design
+* Dynamic Data Rendering
+* API Integration with Backend
+
+---
+
+## Screens / Modules
+
+* Home Page
+* Menu Page
+* Cart / Order Page
+* Admin Dashboard
+* Reports Section
+
+---
+
+## Installation & Setup
+
+```bash
+# Clone repository
+git clone https://github.com/johndoe/rms-project.git
+
+# Go to project folder
+cd rms-project
+
+# Install dependencies
+npm install
+
+# Run frontend
+npm start
+
+# Run backend (if applicable)
+go run main.go
+```
 
 ---
 
 ## Project Structure
 
 ```
-src/
-├── components/       # Reusable UI components
-├── data/             # Template definitions (30 templates, categories, sample data)
-├── lib/
-│   ├── auth.js       # Auth helpers (signUp, signIn, OAuth, signOut)
-│   └── supabase/
-│       └── client.js # Supabase client singleton
-├── pages/            # Route-level page components
-└── utils/
-    ├── cardStorage.js # Save/load cards (Supabase or localStorage)
-    └── vcard.js       # .vcf file generation
+/project-root
+│── frontend/
+│   ├── src/
+│   ├── components/
+│   ├── pages/
+│
+│── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│
+│── database/
+│── README.md
 ```
 
 ---
 
-## Pages
+## GitHub & Live Demo
 
-| Route | Page | Description |
-|---|---|---|
-| `/` | HomePage | Marketing landing page |
-| `/login` | LoginPage | Email/password + OAuth login & sign-up |
-| `/customize/:id` | CustomizePage | Live card editor (requires auth) |
-| `/card/:slug` | VirtualCardPage | Public-facing digital card |
-| `/my-cards` | MyCardsPage | User's card dashboard (requires auth) |
-| `/pricing` | PricingPage | Pricing tiers (UI only) |
-| `/auth/callback` | AuthCallbackPage | OAuth redirect handler |
+* **GitHub Repository:** https://github.com/johndoe/rms-project
+* **Live URL (if deployed):** https://rms-demo.netlify.app
 
 ---
 
-## Getting Started
+## Testing
 
-### Prerequisites
-
-- Node.js 18+
-- A [Supabase](https://supabase.com) project (optional — app works without it using localStorage)
-
-### Installation
-
-```bash
-npm install
-```
-
-### Environment Variables
-
-Create a `.env` file in the project root:
-
-```env
-VITE_SUPABASE_URL=your-supabase-project-url
-VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
-```
-
-> If these are omitted, the app runs in offline mode with localStorage persistence.
-
-### Database Setup
-
-Run the SQL in [`supabase-schema.sql`](supabase-schema.sql) in your Supabase SQL editor to create the `profiles` and `cards` tables, RLS policies, and helper functions.
-
-### Development
-
-```bash
-npm run dev
-```
-
-### Build
-
-```bash
-npm run build
-```
-
-### Preview Production Build
-
-```bash
-npm run preview
-```
+* Tested UI responsiveness on different screen sizes (mobile, tablet, desktop)
+* Verified API responses using Postman
+* Checked edge cases (empty cart, invalid input, login errors)
 
 ---
 
-## Deployment
+## Challenges Faced
 
-The project includes a [`vercel.json`](vercel.json) configured for:
+> Example:
 
-- SPA routing (all routes rewrite to `index.html`)
-- Security headers (`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`)
-
-Deploy with the [Vercel CLI](https://vercel.com/docs/cli) or connect the repository directly in the Vercel dashboard. Add the `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` environment variables in the Vercel project settings.
+* Difficulty in managing state across multiple components in React
+* API integration issues between frontend and backend
+* Database connection and schema handling challenges
 
 ---
 
-## Database Schema (Supabase)
+## Future Enhancements
 
-**`profiles`** — Auto-created on signup via trigger. Stores `full_name` and `avatar_url`.
+* Add online payment integration (eSewa/Khalti)
+* Improve UI/UX design with animations
+* Add real-time order tracking
+* Implement notification system for orders
 
-**`cards`** — Published virtual cards. Key fields: `slug`, `user_id`, `name`, `title`, `company`, `phone`, `email`, `web`, social handles (`linkedin`, `github`, `twitter`, `instagram`), `design` (JSONB), `views`, `is_published`.
+---
 
-Row-Level Security: published cards are publicly readable; all writes are owner-only.
+## Acknowledgement
+
+> I would like to thank my instructor **Mr. Dipak Shrestha** for guidance and support throughout this project.
+
+---
+
+## Declaration
+
+> I hereby declare that this project is my original work and has been completed as part of my academic submission.
 
 ---
 
