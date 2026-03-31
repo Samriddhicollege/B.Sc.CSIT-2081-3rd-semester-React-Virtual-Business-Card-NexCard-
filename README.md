@@ -6,18 +6,18 @@
 
 ## Student Information
 
-* **Name:** John Doe
-* **Roll Number:** 2023-CS-045
-* **Course / Program:** BSc Computer Science
-* **Semester / Year:** 3rd Semester / 2026
+* **Name:** Rajan Pantha
+* **Roll Number:** 18
+* **Course / Program:** BSc CSIT
+* **Semester / Year:** 3rd Semester / 2nd Year
 
 ---
 
 ## Instructor Information
 
-* **Instructor Name:** Mr. Dipak Shrestha
-* **Course Title:** React Development / Full Stack Development
-* **College Name:** XYZ International College
+* **Instructor Name:** Mr. Deepak Shrestha
+* **Course Title:** React Development 
+* **College Name:** Samriddhi College
 
 ---
 
