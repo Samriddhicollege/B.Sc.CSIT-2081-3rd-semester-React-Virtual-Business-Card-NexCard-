@@ -127,8 +127,8 @@ go run main.go
 
 ## GitHub & Live Demo
 
-* **GitHub Repository:** https://github.com/johndoe/rms-project
-* **Live URL (if deployed):** https://rms-demo.netlify.app
+* **GitHub Repository:** [https://github.com/johndoe/rms-project](https://github.com/Samriddhicollege/B.Sc.CSIT-2081-3rd-semester-React-Virtual-Business-Card-NexCard-)
+* **Live URL:** [ https://rms-demo.netlify.app](https://mynexcard.vercel.app/)
 
 ---
 
